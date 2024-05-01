@@ -44,6 +44,24 @@ class PermissionSeeder extends Seeder
             ['name' => 'user-edit'],
             ['name' => 'user-update'],
             ['name' => 'user-destroy'],
+            // cource page
+            ['name' => 'cource-index'],
+            ['name' => 'cource-filter'],
+            ['name' => 'cource-create'],
+            ['name' => 'cource-store'],
+            ['name' => 'cource-show'],
+            ['name' => 'cource-edit'],
+            ['name' => 'cource-update'],
+            ['name' => 'cource-destroy'],
+            // lesson page
+            ['name' => 'lesson-index'],
+            ['name' => 'lesson-filter'],
+            ['name' => 'lesson-create'],
+            ['name' => 'lesson-store'],
+            ['name' => 'lesson-show'],
+            ['name' => 'lesson-edit'],
+            ['name' => 'lesson-update'],
+            ['name' => 'lesson-destroy'],
         ];
         foreach ($permissionList as $item => $value){
             Permission::create($value);

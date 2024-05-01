@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="" class="brand-link">
         <img src="{{ asset("admin_lte_3.2.0/dist/img/AdminLTELogo.png") }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">TIME TRACKING</span>
+        <span class="brand-text font-weight-light">ONLINE</span>
     </a>
 
     <!-- Sidebar -->
@@ -18,91 +18,23 @@
                     </li>
                 @endcan
 
-                @can('tt-index')
+                @can('cource-index')
                     <li class="nav-item">
-                        <a href="{{ route('tt.index') }}" class="nav-link {{ Request::is('tt*') ? "active":'' }}">
-                            <i class="fa fa-sim-card"></i>
-                            <p>Учет времени</p>
+                        <a href="{{ route('cource.index') }}" class="nav-link {{ Request::is('cource*') ? "active":'' }}">
+                            <i class="fa fa-shapes"></i>
+                            <p>Cource</p>
                         </a>
                     </li>
                 @endcan
 
-                @can('cadre-index')
+                @can('lesson-index')
                     <li class="nav-item">
-                        <a href="{{ route("cadre.index") }}" class="nav-link {{ Request::is('cadre*') ? "active":'' }}">
-                            <i class="fa fa-person-booth"></i>
-                            <p>Кадр</p>
+                        <a href="{{ route('lesson.index') }}" class="nav-link {{ Request::is('lesson*') ? "active":'' }}">
+                            <i class="fa fa-chalkboard"></i>
+                            <p>Lesson</p>
                         </a>
                     </li>
                 @endcan
-
-                @canany(['holiday-index','bugalter-index'])
-                    <li class="nav-item {{ (Request::is('holiday*') or Request::is('bugalter*')) ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ (Request::is('holiday*') or Request::is('bugalter*')) ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-cog"></i>
-                            <p>
-                                Бугалтер
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            @can('bugalter-index')
-                                <li class="nav-item">
-                                    <a href="{{ route('bugalter.index') }}" class="nav-link {{ Request::is('bugalter*') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Бугалтер</p>
-                                    </a>
-                                </li>
-                            @endcan
-
-                            @can('holiday-index')
-                                <li class="nav-item">
-                                    <a href="{{ route('holiday.index') }}" class="nav-link {{ Request::is('holiday*') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Информация</p>
-                                    </a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </li>
-                @endcanany
-
-                @can('employee-index')
-                    <li class="nav-item">
-                        <a href="{{ route('employee.index') }}" class="nav-link {{ Request::is('employee*') ? "active":'' }}">
-                            <i class="fa fa-users"></i>
-                            <p>Сотрудник</p>
-                        </a>
-                    </li>
-                @endcan
-
-                @can('change-hours-index')
-                    <li class="nav-item">
-                        <a href="{{ route('change_hours.index') }}" class="nav-link {{ Request::is('change-hours*') ? "active":'' }}">
-                            <i class="fa fa-users"></i>
-                            <p>Изменение рабочего времени</p>
-                        </a>
-                    </li>
-                @endcan
-
-                @can('department-index')
-                    <li class="nav-item">
-                        <a href="{{ route('department.index') }}" class="nav-link {{ Request::is('department*') ? "active":'' }}">
-                            <i class="fa fa-directions"></i>
-                            <p>Отделы</p>
-                        </a>
-                    </li>
-                @endcan
-
-                @can('position-index')
-                    <li class="nav-item">
-                        <a href="{{ route('position.index') }}" class="nav-link {{ Request::is('position*') ? "active":'' }}">
-                            <i class="fa fa-poo-storm"></i>
-                            <p>Должность</p>
-                        </a>
-                    </li>
-                @endcan
-
 
                 @canany(['role-index','user-index'])
                     <li class="nav-item {{ (Request::is('roles*') or Request::is('permissions*') or Request::is('user*')) ? 'menu-open' : '' }}">

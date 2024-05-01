@@ -27,5 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', \App\Http\Controllers\RoleController::class);
     Route::resource('permissions', \App\Http\Controllers\PermissionController::class);
     Route::resource('user', \App\Http\Controllers\UserController::class);
+    Route::resource('cource', \App\Http\Controllers\CourceController::class);
+    Route::resource('lesson', \App\Http\Controllers\LessonController::class);
 });
 
