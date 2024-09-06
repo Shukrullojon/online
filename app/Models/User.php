@@ -2,39 +2,15 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
-/**
- * @OA\Schema(
- *     schema="User",
- *     type="object",
- *     title="User",
- *     required={"id","name", "email"},
- *     @OA\Property(
- *         property="id",
- *         type="integer",
- *         description="User ID"
- *     ),
- *     @OA\Property(
- *         property="name",
- *         type="string",
- *         description="User name"
- *     ),
- *     @OA\Property(
- *         property="email",
- *         type="string",
- *         description="User email"
- *     )
- * )
- */
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -42,15 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'surname',
-        'username',
         'email',
         'password',
-        'balans',
-        'image',
-        'remember_token',
-        'balans'
+        'name',
+        'chat_id',
+        'phone',
+        'first_name',
+        'last_name',
+        'username',
+        'step',
+        'status',
+        'balance',
     ];
 
     /**
@@ -73,19 +51,4 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    /**
-     * Get the categories for the user.
-     */
-    public function categories()
-    {
-        return $this->hasMany(Category::class);
-    }
-
-    /**
-     * Get the transactions for the user.
-     */
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class);
-    }
 }
