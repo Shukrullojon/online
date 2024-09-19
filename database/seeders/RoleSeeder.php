@@ -17,13 +17,5 @@ class RoleSeeder extends Seeder
         $permissions = Permission::pluck('id', 'id')->all();
         $admin = Role::create(['name' => 'Admin']);
         $admin->syncPermissions($permissions);
-        $teacher = Role::create(['name' => 'Teacher']);
-        $teacher->syncPermissions($permissions);
-        $reception = Role::create(['name' => 'Reception']);
-        $reception->syncPermissions($permissions);
-        $finance = Role::create(['name' => 'Finance']);
-        $finance->syncPermissions($permissions);
-        $student = Role::create(['name' => 'Student']);
-        $student->syncPermissions($permissions);
     }
 }

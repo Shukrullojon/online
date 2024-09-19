@@ -31,13 +31,6 @@ class Handler extends ExceptionHandler
 
     public function report(Throwable $e)
     {
-        $text = (string) view('telegram.error',[
-            'info' => $e
-        ]);
-        Http::post('https://api.telegram.org/bot'.config('custom.bot_token').'/sendMessage',[
-            'chat_id' => config('custom.my_chat_id'),
-            'text' => $text,
-            'parse_mode' => 'html'
-        ]);
+
     }
 }

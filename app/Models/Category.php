@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Job extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'jobs';
+    protected $table = 'categories';
 
     protected $guarded = [];
 
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
 }
