@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="w3-container w3-center w3-dark-grey" style="padding:64px 16px" id="pricing">
-        <p class="w3-large" style="margin-bottom: -40px">{{ $work->name }} vakansiya uchun pastdagi malumotlarni to'ldiring</p>
+        <p class="w3-large" style="margin-left: 250px">{{ $work->name }} vakansiya uchun pastdagi malumotlarni to'ldiring</p>
 
         <div class="w1-row-padding" style="margin-top:32px">
             <form method="POST" action="{{ route("send_resume", $work->id) }}">

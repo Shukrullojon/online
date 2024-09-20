@@ -2,29 +2,38 @@
 
 @section('content')
 
-    <div class="w3-container w3-center w3-dark-grey" style="padding:64px 16px" id="pricing">
-        <p class="w3-large" style="margin-bottom: -40px">{{ $category->name }}</p>
-
-        <div class="w3-row-padding" style="margin-top:32px">
-
-            @foreach($works as $work)
-                <div class="w3-third w3-section">
-                    <ul class="w3-ul w3-white w3-hover-shadow">
-                        <li class="w3-padding-16">
-                            {{ $work->name }} <br>
-                            {{ \App\Models\Work::$work_type_status[$work->work_type] ?? "" }} <br>
-                            {{ $work->experence }} <br>
-                            {{ $work->salary }} <br>
-                            {{ $work->info }} <br>
-                            {{ $work->requir }} <br>
-                            {{ $work->offer }} <br>
-                            <button style="color: green"><a href="{{ route("resume",$work->id) }}">Resumeni Yuborish</a></button>
-                        </li>
-                    </ul>
+    <section class="pricing-table section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>{{ $category->name }}</h2>
+                    </div>
                 </div>
-            @endforeach
-
+            </div>
+            <div class="row">
+                @foreach($works as $work)
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div class="single-table">
+                            <div class="table-head">
+                                <h4 class="title">{{ $work->name }}</h4>
+                            </div>
+                            <ul class="table-list">
+                                <li><i class="icofont icofont-ui-check"></i>{{ \App\Models\Work::$work_type_status[$work->work_type] ?? "" }}</li>
+                                <li><i class="icofont icofont-ui-check"></i>{{ $work->experence }}</li>
+                                <li><i class="icofont icofont-ui-check"></i>{{ $work->salary }}</li>
+                                <li><i class="icofont icofont-ui-check"></i>{{ $work->info }}</li>
+                                <li><i class="icofont icofont-ui-check"></i>{{ $work->requir }}</li>
+                                <li><i class="icofont icofont-ui-check"></i>{{ $work->offer }}</li>
+                            </ul>
+                            <div class="table-bottom">
+                                <a class="btn" href="{{ route("resume",$work->id) }}">Resumeni Yuborish</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
-    </div>
+    </section>
 
 @endsection
